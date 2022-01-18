@@ -1,22 +1,22 @@
-const container = document.querySelector('.container');
-const seats = document.querySelectorAll('.row .seat:not(.occupied)');
-const count = document.getElementById('count');
-const total = document.getElementById('total');
-const movieSelect = document.getElementById('movie');
+const container = document.querySelector('.container'); //Declares the constant container and selects the element named '.container' which can then be stylized. 
+const seats = document.querySelectorAll('.row .seat:not(.occupied)'); // This is a queryselector but for multiple items.
+const count = document.getElementById('count'); // This declares the constant count and the element can be called on and stylized and 
+const total = document.getElementById('total'); // This declares the constant total and the element can be called on and stylized 
+const movieSelect = document.getElementById('movie'); // This declares the constant movieselect and the element can be called on and stylized 
 
-populateUI();
+populateUI(); //Calls the function PopulateUI
 
-let ticketPrice = +movieSelect.value;
+let ticketPrice = +movieSelect.value; //declares the variable ticketprice (muttable) to be equal to value of the movie selected 
 
 // Save selected movie index and price
-function setMovieData(movieIndex, moviePrice) {
-  localStorage.setItem('selectedMovieIndex', movieIndex);
-  localStorage.setItem('selectedMoviePrice', moviePrice);
+function setMovieData(movieIndex, moviePrice) { 
+  localStorage.setItem('selectedMovieIndex', movieIndex); // 
+  localStorage.setItem('selectedMoviePrice', moviePrice); //
 }
 
 // Update total and count
 function updateSelectedCount() {
-    const selectedSeats = document.querySelectorAll('.row .seat.selected');
+    const selectedSeats = document.querySelectorAll('.row .seat.selected'); 
   
     const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
   
