@@ -14,23 +14,23 @@ function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem('selectedMoviePrice', moviePrice); //
 }
 
-// Update total and count
+// Updates 
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected'); 
   
     const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
   
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex)); //Saves the the selected seats 
   
-    const selectedSeatsCount = selectedSeats.length;
+    const selectedSeatsCount = selectedSeats.length; // outputs the length of the list of selected seats
   
-    count.innerText = selectedSeatsCount;
+    count.innerText = selectedSeatsCount; //the attribute 
     total.innerText = selectedSeatsCount * ticketPrice;
   }
 
 // Get data from localstorage and populate UI
 function populateUI() {
-    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')); // 
   
     if (selectedSeats !== null && selectedSeats.length > 0) {
       seats.forEach((seat, index) => {
